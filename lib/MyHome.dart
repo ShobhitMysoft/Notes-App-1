@@ -13,19 +13,9 @@ class MyHome extends StatelessWidget {
       ),
 
       body: Column(
-        children: [
+        children: const [
           AddTask(),
           TaskList()
-          // Expanded(
-          //   child: ListView(
-          //     children: [
-          //       Text('Note 1'),
-          //       Text('Note 1'),
-          //       Text('Note 1'),
-          //       Text('Note 1'),
-          //     ],
-          //   ),
-          // )
         ],
       ),
     );

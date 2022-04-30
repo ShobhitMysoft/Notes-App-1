@@ -18,7 +18,6 @@ class DatabaseHelper {
   factory DatabaseHelper() => _databaseHelper;
   DatabaseHelper._internal();
 
-
   // DatabaseHelper._privateConstructor();
   // static final DatabaseHelper instance = DatabaseHelper._privateConstructor();
 
@@ -26,26 +25,27 @@ class DatabaseHelper {
   // static Database _database;
   Future<Database> get database async {
     if (_database != null) return _database!;
-     _database = await _initDatabase();
-     return _database!;
+    _database = await _initDatabase();
+    return _database!;
   }
-  
+
   Future<Database> _initDatabase() async {
     final databasePath = await getDatabasesPath();
     String path = join(databasePath, _databaseName);
 
     return await openDatabase(path,
-    version: _databaseVersion,
-    onCreate: _onCreate);
+        version: _databaseVersion, onCreate: _onCreate);
   }
 
   Future<void> _onCreate(Database db, int version) async {
-    await db.execute('CREATE TABLE $table($colId INTEGER PRIMARY KEY, $colCompleted INTEGER, $colTask TEXT)');
+    await db.execute(
+        'CREATE TABLE $table($colId INTEGER PRIMARY KEY, $colCompleted INTEGER, $colTask TEXT)');
   }
 
   Future<int> insert(Map<String, dynamic> row) async {
     Database db = await _databaseHelper.database;
-    return await db.insert(table, row, conflictAlgorithm: ConflictAlgorithm.replace);
+    return await db.insert(table, row,
+        conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
   Future<List<Map<String, dynamic>>> queryAllTask() async {
@@ -65,11 +65,7 @@ class Task {
   final int completed;
   final String task;
 
-  const Task({
-    required this.id,
-    required this.completed,
-    required this.task
-  });
+  const Task({required this.id, required this.completed, required this.task});
 
   Map<String, dynamic> toMap() {
     return {
@@ -78,7 +74,7 @@ class Task {
       'task': task,
     };
   }
-  
+
   @override
   String toString() {
     return 'Task{id: $id, completed: $completed, task: $task}';

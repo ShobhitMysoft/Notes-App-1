@@ -88,25 +88,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_web_plugins:
-    dependency: transitive
-    description: flutter
-    source: sdk
-    version: "0.0.0"
-  fluttertoast:
-    dependency: "direct main"
-    description:
-      name: fluttertoast
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "8.0.9"
-  js:
-    dependency: transitive
-    description:
-      name: js
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.6.3"
   lints:
     dependency: transitive
     description:
@@ -136,14 +117,14 @@ packages:
     source: hosted
     version: "1.7.0"
   path:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: path
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
   path_provider:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: path_provider
       url: "https://pub.dartlang.org"
@@ -225,7 +206,7 @@ packages:
     source: hosted
     version: "1.8.1"
   sqflite:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: sqflite
       url: "https://pub.dartlang.org"

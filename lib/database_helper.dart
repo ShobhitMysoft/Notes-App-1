@@ -10,7 +10,7 @@ class DatabaseHelper {
 
   static const table = 'tasks';
 
-  static const colId = '_id';
+  static const colId = 'id';
   static const colCompleted = 'completed';
   static const colTask = 'task';
 
@@ -57,6 +57,17 @@ class DatabaseHelper {
   //   Database db = await instance.database;
   //   return Sqflite.firstIntValue(await db.rawQuery('SELECT COUNT(*) FROM $table'));
   // }
+
+  Future<int> update(Map<String, dynamic> row) async {
+    Database db = await _databaseHelper.database;
+    int id = row[colId];
+    return await db.update(table, row, where: '$colId = ?', whereArgs: [id]);
+  }
+
+  Future<int> delete(int id) async {
+    Database db = await _databaseHelper.database;
+    return await db.delete(table, where: '$colId = ?', whereArgs: [id]);
+  }
 }
 
 // Data Model Class

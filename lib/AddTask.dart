@@ -51,7 +51,7 @@ class _AddTaskState extends State<AddTask> {
     final text = tfController.text;
     if (text.isEmpty) return print('Please enter a task.');
     Map<String, dynamic> row = {
-      DatabaseHelper.colCompleted: 0,
+      DatabaseHelper.colCompleted: 1,
       DatabaseHelper.colTask: tfController.text
     };
     final id = await dbHelper.insert(row);
